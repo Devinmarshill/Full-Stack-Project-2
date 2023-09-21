@@ -3,11 +3,7 @@ VALUES ("Movie Pitch"),
        ("Comic Book Strip"),
        ("Episode Pilot Draft");
 
-INSERT INTO descriptions (descriptions_id, review)
-VALUES (1, "Zazu is underrated. Give that hornbill a sequel!"),
-       (2, "I'm gonna make him an offer you can't refuse, watch this movie"),
-       (1, "Scar is the lion everyone loves to hate"),
-       (3, "Ten years of ballet and three years of tap to join a gang in this neighborhood"),
-       (5, "The tin man gave a metallic, hollow performance"),
-       (1, "Hakuna matata"),
-       (5, "Those flying monkeys are nightmare fuel!");
+INSERT INTO descriptions (projects_id, descriptions)
+VALUES (1, "A husband and a wife murder the mail man and have to hide the crime while saving their marriage"),
+       (2, "Strip 1 garfield hates Mondays"),
+       (1, "Episode 1 a father sits his kids down to explain how he met their mother");
