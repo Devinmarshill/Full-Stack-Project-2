@@ -12,12 +12,24 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  for (const project of projectData) {
-    await Project.create({
-      ...project,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
-    });
-  }
+  // const tasks = await User.bulkCreate(tasksData, {
+  //   individualHooks: true,
+  //   returning: true,
+  // });
+
+  const project = await Project.bulkCreate(projectData, {
+    individualHooks: true,
+    returning: true,
+  });
+
+
+
+  // for (const project of projectData) {
+  //   await Project.create({
+  //     ...project,
+  //     user_id: users[Math.floor(Math.random() * users.length)].id,
+  //   });
+  // }
 
   process.exit(0);
 };

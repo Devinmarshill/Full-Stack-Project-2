@@ -12,10 +12,10 @@ Tasks.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+    // username: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
     description: {
       type: DataTypes.STRING,
     },
