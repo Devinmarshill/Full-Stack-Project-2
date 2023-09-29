@@ -1,9 +1,23 @@
 const router = require('express').Router();
-const { Project, User } = require('../models');
+const { User } = require('../models');
 // const withAuth = require('../utils/auth');
 
+router.get('/all', async (req, res) => {
+  try {
+  res.render('all')
+}catch (err) {
+  console.error(err)
+}
+})
 router.get('/', async (req, res) => {
-  res.render('profile');
+
+    
+  
+  
+  
+  
+  // res.render('profile');
+
 //   try {
 //     // Get all projects and JOIN with user data
 //     const projectData = await Project.findAll({
@@ -62,7 +76,7 @@ router.get('/profile', async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    res.render('profile', {
+    res.render('all', {
       ...user,
       logged_in: true
     });
@@ -74,7 +88,7 @@ router.get('/profile', async (req, res) => {
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/all');
     return;
   }
 
@@ -83,4 +97,3 @@ router.get('/login', (req, res) => {
 
 module.exports = router;
 
-// LOG IN REQUEST NOT NECESSARY BUT IS DONE SO LEAVE IT?

@@ -2,13 +2,13 @@ const newFormHandler = async (event) => {
   event.preventDefault();
 
   const name = document.querySelector('#project-name').value.trim();
-  const needed_funding = document.querySelector('#project-funding').value.trim();
-  const description = document.querySelector('#project-desc').value.trim();
+  const email = document.querySelector('#project-funding').value.trim();
+  const password = document.querySelector('#project-desc').value.trim();
 
-  if (name && needed_funding && description) {
+  if (name && email && password) {
     const response = await fetch(`/api/projects`, {
       method: 'POST',
-      body: JSON.stringify({ name, needed_funding, description }),
+      body: JSON.stringify({ name, email, password }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -38,6 +38,32 @@ const delButtonHandler = async (event) => {
   }
 };
 
+const newUserFormHandler = async (event) => {
+  event.preventDefault();
+
+  const name = document.querySelector('#name').value.trim();
+  const email = document.querySelector('#email').value.trim();
+  const password = document.querySelector('#password').value.trim();
+
+  if (name && email && password) {
+    const response = await fetch(`/api/projects`, {
+      method: 'POST',
+      body: JSON.stringify({ name, email, password }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (response.ok) {
+      document.location.replace('/login');
+    } else {
+      alert('Failed to create profile');
+    }
+  }
+};
+
+
+
 document
   .querySelector('.new-project-form')
   .addEventListener('submit', newFormHandler);
@@ -45,3 +71,7 @@ document
 document
   .querySelector('.project-list')
   .addEventListener('click', delButtonHandler);
+
+   document
+  .querySelector('.new-user-form')
+ .addEventListener('submit', newUserFormHandler);
