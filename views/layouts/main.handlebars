@@ -5,8 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/reset.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./css/jass.css">
+    <link rel="stylesheet" href="./css/style.css">
 
     <title>Project 2</title>
 </head>
@@ -15,19 +15,27 @@
     <header>
         <a href="#default" class="title">Project 2</a>
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="profile.html">My Profile</a></li>
             <li><a href="contact.html">Contact Us</a></li>
+            {{#if logged_in}}
+             <li><a id="logout" href="#">Logout</a></li>
+            {{else}}
+
+            
+             <li><a href="/login">Log in or Sign up</a></li>
+{{/if}}
+
         </ul>
     </header>
 
 
 
-    <div>
+    {{!-- <div>
         <h2>Text</h2>
-    </div>
+    </div> --}}
 
-    <div class="form-container">
+    {{!-- <div class="form-container">
         <form>
             <div>
                 <label for="zipcode">Form</label>
@@ -39,7 +47,7 @@
             </div>
             <input type="submit" value="Button">
         </form>
-    </div>
+    </div> --}}
 
     <div class="sidenav">
         <a href="#Dashboard">Dashboard</a>
@@ -51,6 +59,9 @@
       {{{body}}}
     </main>
 </body>
+{{#if logged_in}}
+<script src="js/logout.js"></script>
+{{/if}}
 <script src="./js/profile.js">
 
 </script>

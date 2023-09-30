@@ -1,22 +1,18 @@
 const router = require('express').Router();
-const { User } = require('../models');
-// const withAuth = require('../utils/auth');
+const { User, Task } = require('../models');
+const withAuth = require('../utils/auth');
 
 router.get('/all', async (req, res) => {
   try {
-  res.render('all')
+  res.render('all',{logged_in: req.session.logged_in})
 }catch (err) {
   console.error(err)
 }
 })
 router.get('/', async (req, res) => {
 
-    
   
-  
-  
-  
-  // res.render('profile');
+  res.render('homepage',{logged_in: req.session.logged_in});
 
 //   try {
 //     // Get all projects and JOIN with user data
@@ -71,7 +67,7 @@ router.get('/profile', async (req, res) => {
     // Find the logged in user based on the session ID DONT NEED TO INCLUDE
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
+      include: [{ model: Task }],
     });
 
     const user = userData.get({ plain: true });

@@ -1,53 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/reset.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-
-    <title>Project 2</title>
-</head>
-
-<body>
-    <header>
-        <a href="#default" class="title">Project 2</a>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="profile.html">My Profile</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-    </header>
-
-
 
     <div>
         <h2>Text</h2>
     </div>
 
     <div class="form-container">
-        <form>
+        <form id="form">
             <div>
-                <label for="zipcode">Form</label>
-                <input type="text" id="zipcode" name="zipcode">
+                <label for="taskname">Form</label>
+                <input type="text" id="taskname" name="taskname">
             </div>
             <div>
-                <label for="item">Form 2</label>
-                <input type="text" id="item" name="item">
+                <label for="needed_funding">Form 2</label>
+                <input type="text" id="needed_funding" name="needed_funding">
+
+                <textarea name="" id="description" cols="30" rows="10"></textarea>
             </div>
             <input type="submit" value="Button">
         </form>
     </div>
 
-    <div class="sidenav">
-        <a href="#Dashboard">Dashboard</a>
-        <a href="#myProjects">My Projects</a>
+   {{#if tasks.length}}
+  <div class="col-md-6 tasks-list">
+    <h3>Current tasks:</h3>
 
+    {{#each tasks as |task|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/tasks/{{task.id}}">{{task.taskname}}</a></h4>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{task.id}}">DELETE</button>
+      </div>
     </div>
-
-    <div class="main">
-    </div>
-</body>
-
-</html>
+    {{/each}}
+  </div>
+  {{/if}} 

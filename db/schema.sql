@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS projects_db;
-CREATE DATABASE projects_db;
+DROP DATABASE IF EXISTS tasks_db;
+CREATE DATABASE tasks_db;
 
 -- USE projects_db;
 

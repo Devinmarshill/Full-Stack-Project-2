@@ -12,10 +12,10 @@ Tasks.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    // username: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    // },
+    taskname: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     description: {
       type: DataTypes.STRING,
     },
@@ -41,7 +41,7 @@ Tasks.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: 'task',
   }
 );
 
