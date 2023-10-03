@@ -1,0 +1,109 @@
+<!-- Loop over each object in the projects array -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/jass.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <title>Project 2</title>
+</head>
+
+<body>
+    <header>
+        <a href="#default" class="title">Project 2</a>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="profile.html">My Profile</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            {{#if logged_in}}
+             <li><a id="logout" href="#">Logout</a></li>
+            {{else}}
+
+            
+             <li><a href="/login">Log in or Sign up</a></li>
+{{/if}}
+
+        </ul>
+    </header>
+
+
+
+    {{!-- <div>
+        <h2>Text</h2>
+    </div> --}}
+
+    {{!-- <div class="form-container">
+        <form>
+            <div>
+                <label for="zipcode">Form</label>
+                <input type="text" id="zipcode" name="zipcode">
+            </div>
+            <div>
+                <label for="item">Form 2</label>
+                <input type="text" id="item" name="item">
+            </div>
+            <input type="submit" value="Button">
+        </form>
+    </div> --}}
+
+    <div class="sidenav">
+        <a href="#Dashboard">Dashboard</a>
+        <a href="#myProjects">My Projects</a>
+
+    </div>
+
+    <main class="main">
+      {{{body}}}
+    </main>
+</body>
+{{#if logged_in}}
+<script src="js/logout.js"></script>
+{{/if}}
+<script src="./js/profile.js">
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!-- {{#each projects as |project| }}
+<div class="row mb-4 project">
+  <div class="col-md-5">
+    <h2>
+      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
+      {{{get_emoji}}}
+      <a href="/project/{{project.id}}">{{project.name}}</a>
+    </h2>
+    <p>
+      <span for="img" aria-label="money">💲</span>
+      <!-- Pass needed_funding value to the helper function -->
+      <span class="dollar-amount">{{format_amount project.needed_funding}}</span>
+      needed!
+    </p>
+    <p>Created by {{project.user.name}} on {{format_date project.date_created}}</p>
+  </div>
+  <div class="col-md-7">
+    <p>
+      {{project.description}}
+    </p>
+  </div>
+</div>
+{{/each}} --}}
