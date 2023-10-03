@@ -26,7 +26,7 @@ const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
-    const response = await fetch(`/api/taskss/${id}`, {
+    const response = await fetch(`/api/tasks/${id}`, {
       method: 'DELETE',
     });
 
@@ -46,7 +46,7 @@ const newUserFormHandler = async (event) => {
   const password = document.querySelector('#password').value.trim();
 
   if (name && email && password) {
-    const response = await fetch(`/api/taskss`, {
+    const response = await fetch(`/api/tasks`, {
       method: 'POST',
       body: JSON.stringify({ name, email, password }),
       headers: {
@@ -68,9 +68,9 @@ document
   .querySelector('#form')
   .addEventListener('submit', newFormHandler);
 
-// document
-//   .querySelector('.tasks-list')
-//   .addEventListener('click', delButtonHandler);
+document
+ .querySelector('.tasks-list')
+   .addEventListener('click', delButtonHandler);
 
 //    document
 //   .querySelector('.new-user-form')
