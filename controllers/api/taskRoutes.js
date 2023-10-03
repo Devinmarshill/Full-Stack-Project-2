@@ -3,7 +3,8 @@ const {User, Task}  = require('../../models');
 // const withAuth = require('../../utils/auth');
 
 router.post('/',  async (req, res) => {
-  try {
+  console.log(req.body);
+  // try {
     const newTask = await Task.create({
       taskname: req.body.taskname,
       description: req.body.description,
@@ -12,9 +13,9 @@ router.post('/',  async (req, res) => {
     });
 
     res.status(200).json(newTask);
-  } catch (err) {
-    res.status(400).json(err);
-  }
+  // } catch (err) {
+  //   res.status(400).json(err);
+  // }
 });
 
 router.delete('/:id',  async (req, res) => {
